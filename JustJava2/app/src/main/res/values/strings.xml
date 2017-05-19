@@ -7,4 +7,6 @@
     <string name="order">Order</string>
     <string name="price">price</string>
     <string name="__0">$0</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 </resources>
