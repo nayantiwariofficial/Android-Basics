@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nayantiwari.asuinfo.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/downtown1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#7674"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:text="Arizona State University"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number: +1 480-965-2100"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textStyle="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address: 1151 S Forest Ave, Tempe, AZ, 85281"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_below="@id/textView1"
+        android:textStyle="normal" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textView2"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:linksClickable="true"
+        android:padding="10dp"
+        android:text="Website: http://asu.edu"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>
