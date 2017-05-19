@@ -17,35 +17,47 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="addNumberOfCoffees"
-        android:text="@string/plus"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/quantity_text_view"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/_0"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:onClick="removeNumberOfCoffees"
-        android:text="@string/minus"
-        android:textSize="16sp" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:onClick="removeNumberOfCoffees"
+            android:text="@string/minus"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/quantity_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+
+            android:layout_weight="1"
+            android:text="@string/_0"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:onClick="addNumberOfCoffees"
+            android:text="@string/plus"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"

@@ -14,6 +14,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
     int numberOfCoffees = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,21 +25,20 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrders(View view) {
-        display(numberOfCoffees);
-        displayPrice( numberOfCoffees * 5);
-        numberOfCoffees = 0;
+        String priceMessage = "Total: $"+ numberOfCoffees * 5 + "\nThank you!" ;
+        displayMessage(priceMessage);
     }
 
-    public void addNumberOfCoffees(View view){
+    public void addNumberOfCoffees(View view) {
         numberOfCoffees++;
         display(numberOfCoffees);
     }
-    public void removeNumberOfCoffees(View view){
-        if(numberOfCoffees > 0) {
+
+    public void removeNumberOfCoffees(View view) {
+        if (numberOfCoffees > 0) {
             numberOfCoffees--;
             display(numberOfCoffees);
-        }
-        else{
+        } else {
             numberOfCoffees = 0;
         }
     }
@@ -51,8 +51,17 @@ public class MainActivity extends AppCompatActivity {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
-        private void displayPrice(int number) {
-            TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-            priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-        }
+
+    private void displayPrice(int number) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
 }
