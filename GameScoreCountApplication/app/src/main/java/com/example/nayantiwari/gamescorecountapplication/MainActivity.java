@@ -45,13 +45,15 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB = scoreTeamB + 3;
         displayScoreTeamB(scoreTeamB);
     }
+
     private void displayScoreTeamA(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.score_team_a);
-        quantityTextView.setText(String.valueOf(scoreTeamA));
+        quantityTextView.setText(String.valueOf(number));
     }
+
     private void displayScoreTeamB(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.score_team_b);
-        quantityTextView.setText(String.valueOf(scoreTeamB));
+        quantityTextView.setText(String.valueOf(number));
     }
 
     public void resetWholeScore(View view) {
