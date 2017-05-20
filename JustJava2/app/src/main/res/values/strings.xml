@@ -9,4 +9,7 @@
     <string name="__0">$0</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+
+    <string name="template1">Name: %1$s\nQuantity: %2$s\nTotal: $%3$d\nThank you!</string>
+    <string name="orderSummary">Order summary</string>
 </resources>
