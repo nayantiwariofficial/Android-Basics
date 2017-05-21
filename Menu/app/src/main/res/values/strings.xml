@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Menu</string>
+    <string name="mango_sorbet">Mango sorbet</string>
+    <string name="blueberry_pie">Blueberry pie</string>
+    <string name="chocolate_lava_cake">Chocolate lava cake</string>
+    <string name="print_menu_to_logs">Print menu to logs</string>
+</resources>
