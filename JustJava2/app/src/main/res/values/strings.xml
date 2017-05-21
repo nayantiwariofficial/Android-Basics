@@ -12,4 +12,7 @@
 
     <string name="template1">Name: %1$s\nQuantity: %2$s\nTotal: $%3$d\nThank you!</string>
     <string name="orderSummary">Order summary</string>
+    <string name="toppings">toppings</string>
+    <string name="whipped_cream">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>
 </resources>
