@@ -1,13 +1,24 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@android:style/Theme.Material.Light.DarkActionBar"
+    tools:context="com.example.nayantiwari.justjava2.MainActivity">
 
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context="com.example.nayantiwari.justjava2.MainActivity">
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:inputType="textCapWords"
+            android:hint="@string/name"/>
 
         <TextView
             android:id="@+id/whipped_text_view"
@@ -40,11 +51,11 @@
             android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"
             android:checked="false"
-            android:onClick="changeCheckedValue"
             android:paddingEnd="24dp"
             android:paddingStart="24dp"
-            android:text="@string/chocolate"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="changeCheckedValue"
+            android:text="@string/chocolate" />
 
         <TextView
             android:id="@+id/textView1"
@@ -63,11 +74,7 @@
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
+                style="@style/addSubButton"
                 android:onClick="removeNumberOfCoffees"
                 android:text="@string/minus"
                 android:textSize="16sp" />
@@ -84,47 +91,21 @@
                 android:textSize="16sp" />
 
             <Button
+                style="@style/addSubButton"
                 android:id="@+id/button1"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
                 android:onClick="addNumberOfCoffees"
-                android:text="@string/plus"
-                android:textSize="16sp" />
+                android:text="@string/plus"/>
 
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/orderSummary"
-            android:textAllCaps="true"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/price_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/__0"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
             android:onClick="submitOrders"
             android:text="@string/order"
             android:textSize="16sp" />

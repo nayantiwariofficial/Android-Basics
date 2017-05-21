@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java 2</string>
     <string name="quantity">quantity</string>
     <string name="_0">0</string>
@@ -15,4 +15,15 @@
     <string name="toppings">toppings</string>
     <string name="whipped_cream">Whipped Cream</string>
     <string name="chocolate">Chocolate</string>
+    <string name="name">Name</string>
+    <string name="cannotOrderZeroNumberOfCoffees">Cannot Order Zero number of coffees</string>
+    <string name="addWhippedCream">Add Whipped Cream?</string>
+    <string name="addChocolate">Add Chocolate?</string>
+    <string name="name_s">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="quan">Quantity:</string>
+    <string name="tot">Total: $</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="orderSum">Order Summary</string>
+    <string name="cupLimit100">You cannot have more than 100 cups of coffee</string>
+    <string name="cupNumNoNeg">Cannot have negative quantity</string>
 </resources>
