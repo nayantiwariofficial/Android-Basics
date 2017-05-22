@@ -5,109 +5,14 @@
     android:layout_height="match_parent"
     tools:context="com.example.nayantiwari.quizapp.MainActivity">
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="vertical">-->
-
-    <!--<EditText-->
-    <!--android:id="@+id/editText"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginLeft="16dp"-->
-    <!--android:layout_marginRight="16dp"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:ems="10"-->
-    <!--android:hint="Fill in the blank"-->
-    <!--android:inputType="textCapWords" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/whipped_text_view"-->
-    <!--android:text="Some Text"-->
-    <!--style="@style/HeaderTextStyles"/>-->
-
-    <!--<CheckBox-->
-    <!--android:id="@+id/checkBox1"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginLeft="16dp"-->
-    <!--android:layout_marginRight="16dp"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:checked="false"-->
-    <!--android:onClick="changeCheckedValue"-->
-    <!--android:paddingEnd="24dp"-->
-    <!--android:paddingStart="24dp"-->
-    <!--android:text="@string/whipped_cream"-->
-    <!--android:textSize="16sp" />-->
-
-    <!--<CheckBox-->
-    <!--android:id="@+id/checkBox2"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="16dp"-->
-    <!--android:layout_marginLeft="16dp"-->
-    <!--android:layout_marginRight="16dp"-->
-    <!--android:checked="false"-->
-    <!--android:onClick="changeCheckedValue"-->
-    <!--android:paddingEnd="24dp"-->
-    <!--android:paddingStart="24dp"-->
-    <!--android:text="@string/chocolate"-->
-    <!--android:textSize="16sp" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/textView1"-->
-    <!--style="@style/HeaderTextStyles"-->
-    <!--android:text="@string/quantity" />-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<Button-->
-    <!--android:id="@+id/button2"-->
-    <!--style="@style/addSubButton"-->
-    <!--android:onClick="removeNumberOfCoffees"-->
-    <!--android:text="@string/minus" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/quantity_text_view"-->
-    <!--android:layout_width="match_parent"-->
-    <!--style="@style/HeaderTextStyles"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:layout_marginRight="0dp"-->
-    <!--android:text="@string/_0"-->
-    <!--android:textColor="@android:color/black" />-->
-
-    <!--<Button-->
-    <!--android:id="@+id/button1"-->
-    <!--style="@style/addSubButton"-->
-    <!--android:onClick="addNumberOfCoffees"-->
-    <!--android:text="@string/plus" />-->
-
-
-    <!--</LinearLayout>-->
-
-    <!--<Button-->
-    <!--android:id="@+id/button"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginLeft="16dp"-->
-    <!--android:layout_marginRight="16dp"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:onClick="submitOrders"-->
-    <!--android:text="@string/order"-->
-    <!--android:textSize="16sp" />-->
-
-    <!--</LinearLayout>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            style="@style/TextStyles"
             android:id="@+id/textView"
+            style="@style/TextStyles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/q1_a_sedan_can_have_how_many_number_of_seats" />
@@ -119,22 +24,22 @@
             android:orientation="horizontal">
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox1"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_1" />
+                android:text="@string/_1"
+                android:textColor="@color/colorPrimaryDark" />
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox2"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_2" />
+                android:text="@string/_2"
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
@@ -154,18 +59,18 @@
                 android:textColor="@color/colorPrimaryDark" />
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox4"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_4" />
+                android:text="@string/_4"
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
 
         <TextView
-            style="@style/TextStyles"
             android:id="@+id/textView2"
+            style="@style/TextStyles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/q2_number_of_people_who_can_sit_on_a_bike_according_to_law" />
@@ -177,22 +82,22 @@
             android:orientation="horizontal">
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox5"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_1" />
+                android:text="@string/_1"
+                android:textColor="@color/colorPrimaryDark" />
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox6"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_2" />
+                android:text="@string/_2"
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
@@ -203,28 +108,28 @@
             android:orientation="horizontal">
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox7"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_3" />
+                android:text="@string/_3"
+                android:textColor="@color/colorPrimaryDark" />
 
             <CheckBox
-                style="@style/TextStyles"
-                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/checkBox8"
+                style="@style/TextStyles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/_4" />
+                android:text="@string/_4"
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
         <TextView
-            style="@style/TextStyles"
             android:id="@+id/textView3"
+            style="@style/TextStyles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q3_can_spiders_swim_in_water" />
@@ -235,27 +140,27 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-                <RadioButton
-                    style="@style/TextStyles"
-                    android:id="@+id/radioButton1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/yes" />
+            <RadioButton
+                android:id="@+id/radioButton1"
+                style="@style/TextStyles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/yes" />
 
-                <RadioButton
-                    style="@style/TextStyles"
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/no" />
+            <RadioButton
+                android:id="@+id/radioButton2"
+                style="@style/TextStyles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/no" />
 
         </RadioGroup>
 
         <TextView
-            style="@style/TextStyles"
             android:id="@+id/textView4"
+            style="@style/TextStyles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q4_who_is_the_first_president_in_the_united_states" />
@@ -266,11 +171,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/answer_goes_here"
-            android:inputType="textCapWords"/>
+            android:inputType="textCapWords" />
 
         <TextView
-            style="@style/TextStyles"
             android:id="@+id/textView5"
+            style="@style/TextStyles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q5_this_logo_represents_which_american_university" />
@@ -278,9 +183,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="116dp"
-            android:src="@drawable/downtown1"
+            android:contentDescription="@string/asu_logo"
             android:scaleType="fitCenter"
-            android:contentDescription="@string/asu_logo" />
+            android:src="@drawable/downtown1" />
 
         <EditText
             android:id="@+id/editText2"
@@ -288,20 +193,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/answer_goes_here"
-            android:inputType="textCapWords"/>
+            android:inputType="textCapWords" />
 
-       <RelativeLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-           <Button
-               android:layout_width="wrap_content"
-               android:layout_height="48dp"
-               android:text="@string/submit"
-               android:textAllCaps="true"
-               android:layout_alignParentBottom="true"
-               android:layout_centerInParent="true"
-               android:onClick="checkAnswers"/>
-       </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:onClick="checkAnswers"
+                android:text="@string/submit"
+                android:textAllCaps="true" />
+        </RelativeLayout>
 
     </LinearLayout>
 </ScrollView>
