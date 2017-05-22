@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="submit">Submit</string>
+    <string name="answer_goes_here">Answer goes here</string>
+    <string name="q5_this_logo_represents_which_american_university">Q5. This logo represents which American University?</string>
+    <string name="q4_who_is_the_first_president_in_the_united_states">Q4. Who is the first president in the United States?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="q3_can_spiders_swim_in_water">Q3. Can spiders swim in water?</string>
+    <string name="_4">4</string>
+    <string name="_3">3</string>
+    <string name="_2">2</string>
+    <string name="_1">1</string>
+    <string name="asu_logo">ASU logo</string>
+    <string name="q1_a_sedan_can_have_how_many_number_of_seats">Q1. A sedan can have how many number of seats?</string>
+    <string name="q2_number_of_people_who_can_sit_on_a_bike_according_to_law">Q2. Number of people who can sit on a bike according to law.</string>
+</resources>
