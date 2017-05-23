@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Music</string>
+    <string name="made_for_you">Made For You</string>
+    <string name="jump_back_in">Jump Back In</string>
+    <string name="you_might_also_like">You Might Also Like</string>
+    <string name="recently_played">Recently Played</string>
+</resources>
