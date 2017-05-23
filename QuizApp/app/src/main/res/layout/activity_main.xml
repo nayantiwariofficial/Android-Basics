@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <TextView
@@ -136,6 +137,7 @@
 
         <RadioGroup
             style="@style/TextStyles"
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -180,11 +182,12 @@
             android:layout_height="wrap_content"
             android:text="@string/q5_this_logo_represents_which_american_university" />
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="116dp"
             android:contentDescription="@string/asu_logo"
             android:scaleType="fitCenter"
+            android:id="@+id/logo"
             android:src="@drawable/downtown1" />
 
         <EditText

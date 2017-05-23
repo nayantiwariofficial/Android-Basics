@@ -1,25 +1,79 @@
 package com.example.nayantiwari.quizapp;
 
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageView;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean question1 = false;
-    boolean question2 = false;
-    boolean question3 = false;
-    boolean question4 = false;
-    boolean question5 = false;
+    private boolean question1 = false;
+    private boolean question2 = false;
+    private boolean question3 = false;
+    private boolean question4 = false;
+    private boolean question5 = false;
+
+    private CheckBox checkBox1;
+    private CheckBox checkBox2;
+    private CheckBox checkBox3;
+    private CheckBox checkBox4;
+    private CheckBox checkBox5;
+    private CheckBox checkBox6;
+    private CheckBox checkBox7;
+    private CheckBox checkBox8;
+
+    private AppCompatImageView logo;
+    private RadioGroup radioGroup;
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        init();
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switch (checkedId){
+                    case R.id.radioButton1:
+                        Log.i(TAG, "onCheckedChanged: Radio 1 Selected");
+
+                        logo.setVisibility(View.GONE);
+                        break;
+                    case R.id.radioButton2:
+                        Log.i(TAG, "onCheckedChanged: Radio 2 Selected");
+
+                        logo.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
+    }
+
+    public void init(){
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
+        checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
+        checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
+        checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
+        checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
+        checkBox5 = (CheckBox) findViewById(R.id.checkBox5);
+        checkBox6 = (CheckBox) findViewById(R.id.checkBox6);
+        checkBox7 = (CheckBox) findViewById(R.id.checkBox7);
+        checkBox8 = (CheckBox) findViewById(R.id.checkBox8);
+
+        logo = (AppCompatImageView) findViewById(R.id.logo);
     }
 
     public void checkAnswers(View view) {
@@ -55,71 +109,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkQuestion1() {
-        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
-        CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
-        CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
-        CheckBox checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
-
         if (checkBox2.isChecked() && !checkBox1.isChecked() && !checkBox3.isChecked()) {
             if (checkBox4.isChecked()) {
                 question1 = true;
-//                Toast.makeText(this, "Question 1 is " + question1, Toast.LENGTH_SHORT).show();
             }
-//            else
-//                Toast.makeText(this, "Question 1 is " + question1, Toast.LENGTH_SHORT).show();
         }
-//        else
-//            Toast.makeText(this, "Question 1 is " + question1, Toast.LENGTH_SHORT).show();
-
     }
 
     private void checkQuestion2() {
-        CheckBox checkBox5 = (CheckBox) findViewById(R.id.checkBox5);
-        CheckBox checkBox6 = (CheckBox) findViewById(R.id.checkBox6);
-        CheckBox checkBox7 = (CheckBox) findViewById(R.id.checkBox7);
-        CheckBox checkBox8 = (CheckBox) findViewById(R.id.checkBox8);
-
         if (checkBox5.isChecked() && !checkBox7.isChecked() && !checkBox8.isChecked()) {
             if (checkBox6.isChecked()) {
                 question2 = true;
-//                Toast.makeText(this, "Question 2 is " + question2, Toast.LENGTH_SHORT).show();
             }
-            //else
-//                Toast.makeText(this, "Question 2 is " + question2, Toast.LENGTH_SHORT).show();
         }
-// else
-//            Toast.makeText(this, "Question 2 is " + question2, Toast.LENGTH_SHORT).show();
     }
 
     private void checkQuestion3() {
         RadioButton radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
         RadioButton radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
 
-        if (radioButton1.isChecked()) {
+        if (radioButton1.isChecked() && !radioButton2.isChecked()) {
             question3 = true;
-//            Toast.makeText(this, "Question 3 is " + question3, Toast.LENGTH_SHORT).show();
         }
-//        else
-//            Toast.makeText(this, "Question 3 is " + question3, Toast.LENGTH_SHORT).show();
     }
 
     private void checkQuestion4() {
         EditText editText1 = (EditText) findViewById(R.id.editText1);
         if (editText1.getText().toString().equalsIgnoreCase("George Washington")) {
             question4 = true;
-//            Toast.makeText(this, "Question 4 is " + question4, Toast.LENGTH_SHORT).show();
         }
-//        else
-//            Toast.makeText(this, "Question 4 is " + question4, Toast.LENGTH_SHORT).show();
     }
 
     private void checkQuestion5() {
         EditText editText2 = (EditText) findViewById(R.id.editText2);
         if (editText2.getText().toString().equalsIgnoreCase("Arizona State University") || editText2.getText().toString().equalsIgnoreCase("ASU")) {
             question5 = true;
-//            Toast.makeText(this, "Question 5 is " + question5, Toast.LENGTH_SHORT).show();
         }
-//        else
-//            Toast.makeText(this, "Question 5 is " + question4, Toast.LENGTH_SHORT).show();
     }
 }
