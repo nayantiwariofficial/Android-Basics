@@ -38,10 +38,11 @@
         <activity
             android:name=".FamilyMem"
             android:label="Family" />
-        <activity
-            android:name=".colors"
-            android:label="Colors" />
-        <activity android:name=".ColorActivity"></activity>
+        <!--<activity-->
+        <!--android:name=".colors"-->
+        <!--android:label="Colors" />-->
+        <!--<activity android:name=".ColorActivity"></activity>-->
+        <activity android:name=".GeneralActivity" android:label="General" />
     </application>
 
 </manifest>
