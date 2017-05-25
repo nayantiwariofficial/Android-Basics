@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * Created by nayantiwari on 5/25/17.
  */
@@ -35,11 +33,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word currentWord = getItem(position);
 
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
-        Log.i(TAG, "getView: "+ "WE    ARE      SOMEWHERE");
         nameTextView.setText(currentWord.getDefaultTranslation());
 
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.miwok_text_view);
-        Log.i(TAG, "getView: "+ "WE    ARE      SOMEWHERE");
         numberTextView.setText(currentWord.getMiwokTranslation());
 
         return listItemView;

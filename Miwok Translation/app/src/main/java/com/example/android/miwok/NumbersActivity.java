@@ -33,23 +33,23 @@ public class NumbersActivity extends AppCompatActivity {
         assert supportActionBar != null;
         supportActionBar.setBackgroundDrawable(colorWrapper.getColorDrawable());
 
-        ArrayList<Word> stringArrayList = new ArrayList<Word>();
-        stringArrayList.add(new Word("one","lutti"));
-        stringArrayList.add(new Word("two","otiiko"));
-        stringArrayList.add(new Word("three","tolookosu"));
-        stringArrayList.add(new Word("four","oyyisa"));
-        stringArrayList.add(new Word("five","massokka"));
-        stringArrayList.add(new Word("six","temmokka"));
-        stringArrayList.add(new Word("seven","kenekaku"));
-        stringArrayList.add(new Word("eight","kawinta"));
-        stringArrayList.add(new Word("nine","wo'e"));
-        stringArrayList.add(new Word("ten","na'aacha"));
+        ArrayList<Word> numbersArrayList = new ArrayList<Word>();
+        numbersArrayList.add(new Word("one","lutti"));
+        numbersArrayList.add(new Word("two","otiiko"));
+        numbersArrayList.add(new Word("three","tolookosu"));
+        numbersArrayList.add(new Word("four","oyyisa"));
+        numbersArrayList.add(new Word("five","massokka"));
+        numbersArrayList.add(new Word("six","temmokka"));
+        numbersArrayList.add(new Word("seven","kenekaku"));
+        numbersArrayList.add(new Word("eight","kawinta"));
+        numbersArrayList.add(new Word("nine","wo'e"));
+        numbersArrayList.add(new Word("ten","na'aacha"));
 
-        WordAdapter itemsAdapter = new WordAdapter(this, stringArrayList);
+        WordAdapter itemsAdapter = new WordAdapter(this, numbersArrayList);
         ListView rootView = (ListView) findViewById(R.id.rootView);
-//        for (int i = 0; i < stringArrayList.size(); i++) {
+//        for (int i = 0; i < numbersArrayList.size(); i++) {
 //            TextView wordView = new TextView(this);
-//            wordView.setText(stringArrayList.get(i));
+//            wordView.setText(numbersArrayList.get(i));
 //            rootView.addView(wordView);
 //        }
         rootView.setAdapter(itemsAdapter);

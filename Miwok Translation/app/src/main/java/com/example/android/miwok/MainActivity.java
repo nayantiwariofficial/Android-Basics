@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import static com.example.android.miwok.R.id.numbers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,40 +32,40 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-//        final TextView numbers = (TextView) findViewById(R.id.numbers);
-//        numbers.setOnClickListener(this);
-//        final TextView phrase = (TextView) findViewById(R.id.phrases);
-//        phrase.setOnClickListener(this);
-//
-//        final TextView family = (TextView) findViewById(R.id.family);
-//        family.setOnClickListener(this);
-//
-//        final TextView color = (TextView) findViewById(R.id.colors);
-//        color.setOnClickListener(this);
+        final TextView numbers = (TextView) findViewById(R.id.numbers);
+        numbers.setOnClickListener(this);
+        final TextView phrase = (TextView) findViewById(R.id.phrases);
+        phrase.setOnClickListener(this);
 
-        final TextView numberTextView = (TextView) findViewById(numbers);
-        numberTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadActivity(numberTextView);
-            }
-        });
+        final TextView family = (TextView) findViewById(R.id.family);
+        family.setOnClickListener(this);
+
+        final TextView color = (TextView) findViewById(R.id.colors);
+        color.setOnClickListener(this);
+
+//        final TextView numberTextView = (TextView) findViewById(numbers);
+//        numberTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                loadActivity(numberTextView);
+//            }
+//        });
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        switch (view.getId()){
-//            case R.id.numbers:
-//            case R.id.phrases:
-//            case R.id.family:
-//            case R.id.colors:
-//                loadActivity((TextView) view);
-//                break;
-//        }
-//    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.numbers:
+            case R.id.phrases:
+            case R.id.family:
+            case R.id.colors:
+                loadActivity((TextView) view);
+                break;
+        }
+    }
 
     private void loadActivity(TextView textView){
-        Intent intent = new Intent(MainActivity.this, NumbersActivity.class);
+        Intent intent = new Intent(MainActivity.this, GeneralActivity.class);
         intent.putExtra("NUMBER_KEY", textView.getText().toString());
 //        intent.putExtra("COLOR_KEY", ((ColorDrawable)textView.getBackground()).getColor());
         intent.putExtra("COLOR_DRAWABLE_KEY", new ColorWrapper(textView.getBackground()));
