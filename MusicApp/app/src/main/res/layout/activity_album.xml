@@ -1,86 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#455A64"
+    android:id="@+id/songList"
     tools:context="com.example.nayantiwari.musicapp.AlbumActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#455A64"
-        android:orientation="vertical">
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 1" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 2" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 3" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 4" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 5" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 6" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 7" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 8" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 9" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 10" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 11" />
-
-        <View style="@style/viewStyle" />
-
-        <TextView
-            style="@style/songName"
-            android:text="Song 12" />
-
-
-    </LinearLayout>
-</ScrollView>
+</ListView>

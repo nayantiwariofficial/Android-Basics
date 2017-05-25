@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#455A64"
+    android:id="@+id/linearLayoutAlbumInfo"
     tools:context="com.example.nayantiwari.musicapp.AlbumInfoActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo1"
         android:layout_marginTop="16dp"
         android:scaleType="centerInside"/>
 
@@ -20,7 +20,5 @@
         android:text="Album 1"
         android:layout_marginTop="10dp"
         android:textSize="20sp"/>
-
-
 
 </LinearLayout>

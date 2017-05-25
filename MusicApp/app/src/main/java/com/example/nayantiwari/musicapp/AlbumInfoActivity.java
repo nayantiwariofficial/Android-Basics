@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import static com.example.nayantiwari.musicapp.Commons.bitmap;
 
@@ -20,17 +21,19 @@ public class AlbumInfoActivity extends AppCompatActivity {
         String albumName = null;
         Intent intent = getIntent();
         if (intent != null) {
-        Bundle extras = intent.getExtras();
+            Bundle extras = intent.getExtras();
             if (extras != null) {
                 albumName = extras.getString(Commons.ALBUM_NAME_KEY);
                 setTitle(albumName);
                 Log.i(TAG, "onCreate: AlbumKey: " + albumName);
 //
-//        Bitmap bitmap = (Bitmap) extras.get("BITMAP_KEY");
-//        ImageView mImg = (ImageView) findViewById(R.id.album1_1);
-//                BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-//        mImg.setImageBitmap(bitmap);
+                Bitmap bitmap = (Bitmap) extras.get("BITMAP_KEY");
 
+                //BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayoutAlbumInfo);
+                ImageView imageView = new ImageView(this);
+                imageView.setImageBitmap(bitmap);
+                linearLayout.addView(imageView);
 
             }
         }
