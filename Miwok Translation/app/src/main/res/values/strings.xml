@@ -28,16 +28,4 @@
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">Family Members</string>
 
-    <string-array name="number_list">
-       <item>one</item>
-       <item>two</item>
-       <item>three</item>
-       <item>four</item>
-       <item>five</item>
-       <item>six</item>
-       <item>seven</item>
-       <item>eight</item>
-       <item>nine</item>
-       <item>ten</item>
-    </string-array>
 </resources>
