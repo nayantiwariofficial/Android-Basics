@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void loadActivity(TextView textView){
         Intent intent = new Intent(MainActivity.this, GeneralActivity.class);
         intent.putExtra("NUMBER_KEY", textView.getText().toString());
-//        intent.putExtra("COLOR_KEY", ((ColorDrawable)textView.getBackground()).getColor());
         intent.putExtra("COLOR_DRAWABLE_KEY", new ColorWrapper(textView.getBackground()));
         startActivity(intent);
     }

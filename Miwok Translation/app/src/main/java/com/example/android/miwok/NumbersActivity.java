@@ -5,53 +5,72 @@
 //import android.support.v7.app.AppCompatActivity;
 //import android.os.Bundle;
 //import android.util.Log;
+//import android.view.View;
+//import android.widget.AdapterView;
 //import android.widget.ArrayAdapter;
 //import android.widget.ListView;
 //import android.widget.TextView;
+//import android.widget.Toast;
 //
 //import java.util.ArrayList;
 //
-//import static com.example.android.miwok.R.id.rootView;
 //
 //public class NumbersActivity extends AppCompatActivity {
-//    private static final String TAG = "MainActivity";
+//    private static final String TAG = "NumbersACTIVITY";
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        String number_key;
 //        setContentView(R.layout.activity_numbers);
 //
+//        String key = "";
+////        if (savedInstanceState != null) {
 //        Intent intent = getIntent();
-//        Bundle extras = intent.getExtras();
-//        number_key = extras.getString("NUMBER_KEY");
-//        setTitle(number_key);
+//        if (intent != null) {
+//            Bundle extras = intent.getExtras();
+//            if (extras != null) {
+//                key = extras.getString("NUMBER_KEY");
+//                setTitle(key);
+//                Log.i(TAG, "onCreate: NK: " + key);
+////                int color_key = extras.getInt("COLOR_KEY");
+////                ColorDrawable colorDrawable = new ColorDrawable(color_key);
+//                ActionBar supportActionBar = getSupportActionBar();
 //
-//        ActionBar supportActionBar = getSupportActionBar();
-//        Object drawable_key = extras.get("COLOR_DRAWABLE_KEY");
-//        ColorWrapper colorWrapper = (ColorWrapper) drawable_key;
-//        assert supportActionBar != null;
-//        supportActionBar.setBackgroundDrawable(colorWrapper.getColorDrawable());
+//                if (supportActionBar != null) {
+//                    Object drawableKey = extras.get("COLOR_DRAWABLE_KEY");
+//                    if (drawableKey != null) {
+//                        if (drawableKey instanceof ColorWrapper) {
+//                            ColorWrapper colorWrapper = (ColorWrapper) drawableKey;
+//                            supportActionBar.setBackgroundDrawable(colorWrapper.getColorDrawable());
 //
-//        ArrayList<Word> numbersArrayList = new ArrayList<Word>();
-//        numbersArrayList.add(new Word("one","lutti"));
-//        numbersArrayList.add(new Word("two","otiiko"));
-//        numbersArrayList.add(new Word("three","tolookosu"));
-//        numbersArrayList.add(new Word("four","oyyisa"));
-//        numbersArrayList.add(new Word("five","massokka"));
-//        numbersArrayList.add(new Word("six","temmokka"));
-//        numbersArrayList.add(new Word("seven","kenekaku"));
-//        numbersArrayList.add(new Word("eight","kawinta"));
-//        numbersArrayList.add(new Word("nine","wo'e"));
-//        numbersArrayList.add(new Word("ten","na'aacha"));
+//                        }
+//                    }
+//                }
+//            }
+//        }
 //
-//        WordAdapter itemsAdapter = new WordAdapter(this, numbersArrayList);
+//        ArrayList<Word> numberArrayList = new ArrayList<Word>();
+//        numberArrayList.add(new Word("one", "lutti", R.drawable.number_one));
+//        numberArrayList.add(new Word("two", "otiiko", R.drawable.number_two));
+//        numberArrayList.add(new Word("three", "tolookosu", R.drawable.number_three));
+//        numberArrayList.add(new Word("four", "oyyisa", R.drawable.number_four));
+//        numberArrayList.add(new Word("five", "massokka", R.drawable.number_five));
+//        numberArrayList.add(new Word("six", "temmokka", R.drawable.number_six));
+//        numberArrayList.add(new Word("seven", "kenekaku", R.drawable.number_seven));
+//        numberArrayList.add(new Word("eight", "kawinta", R.drawable.number_eight));
+//        numberArrayList.add(new Word("nine", "wo'e", R.drawable.number_nine));
+//        numberArrayList.add(new Word("ten", "na'aacha", R.drawable.number_ten));
+//
+//        WordAdapter itemsAdapter = new WordAdapter(this, numberArrayList, R.color.category_numbers);
 //        ListView rootView = (ListView) findViewById(R.id.rootView);
-////        for (int i = 0; i < numbersArrayList.size(); i++) {
-////            TextView wordView = new TextView(this);
-////            wordView.setText(numbersArrayList.get(i));
-////            rootView.addView(wordView);
-////        }
+//        assert rootView != null;
 //        rootView.setAdapter(itemsAdapter);
+//
+//        rootView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(NumbersActivity.this, "Clicked list item", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 //    }
 //}

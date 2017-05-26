@@ -16,19 +16,22 @@ import static android.content.ContentValues.TAG;
 public class Word {
     private String mDefaultTranslation;
     private String mMiwokTranslation;
+    private int mMediaResourceId;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
 
 
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int mediaResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mMediaResourceId = mediaResourceId;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation){
+    public Word(String defaultTranslation, String miwokTranslation, int mediaResourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mMediaResourceId = mediaResourceId;
     }
 
     public String getDefaultTranslation() {
@@ -42,6 +45,8 @@ public class Word {
     public int getImageResourceId() {
         return mImageResourceId;
     }
+
+    public int getMediaResourceId() { return mMediaResourceId; }
 
     public boolean hasImage(){
         return mImageResourceId != NO_IMAGE_PROVIDED;

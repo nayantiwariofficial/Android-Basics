@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,10 +10,13 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,9 +24,10 @@ import java.util.ArrayList;
  * Created by nayantiwari on 5/25/17.
  */
 
-public class WordAdapter extends ArrayAdapter<Word> {
+public class WordAdapter extends ArrayAdapter<Word>{
 
     private int mBackgroundColor;
+    private MediaPlayer mediaPlayer;
 
     public WordAdapter(Activity context, ArrayList<Word> words, int color) {
         super(context, 0, words);
@@ -48,11 +53,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         ImageView reqImageView = (ImageView) listItemView.findViewById(R.id.required_image);
 
-//        linearLayout.setBackgroundColor(0xFFFF0033);
-
         LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.linear_layout_main);
         int color = ContextCompat.getColor(getContext(), mBackgroundColor);
         linearLayout.setBackgroundColor(color);
+
 
         if (currentWord.hasImage()) {
             reqImageView.setImageResource(currentWord.getImageResourceId());

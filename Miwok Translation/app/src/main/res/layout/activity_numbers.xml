@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/rootView"
+    android:choiceMode="singleChoice"
     tools:context="com.example.android.miwok.GeneralActivity">
 
 </ListView>

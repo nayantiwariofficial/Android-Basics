@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GeneralActivity" android:label="General" />
+        <activity android:name=".NumbersActivity"/>
     </application>
 
 </manifest>
