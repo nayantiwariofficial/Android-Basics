@@ -17,12 +17,12 @@
         android:scaleType="centerInside"/>
 
     <TextView
-        style="@style/albumName"
-        tools:text="Album 1"
-        android:gravity="center"
         android:id="@+id/album_name"
+        style="@style/albumName"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+        android:gravity="left"
+        android:textSize="20sp"
+        tools:text="Album 1" />
 
     <TextView
         style="@style/albumName"

@@ -11,10 +11,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
-
+    boolean flag = FALSE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,17 +27,19 @@ public class MainActivity extends AppCompatActivity{
         imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                loadActivity(v);
+                flag = FALSE;
+                loadActivity(v, flag);
                 return false;
             }
         });
     }
 
     public void onAlbumClick(View view) {
-        loadActivity(view);
+        flag = TRUE;
+        loadActivity(view, flag);
     }
 
-    public void loadActivity(View view) {
+    public void loadActivity(View view, boolean flag) {
         String tv = null;
         LinearLayout ll = (LinearLayout) view.getParent();
         for (int i = 0; i < ll.getChildCount(); i++) {
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
         }
         Intent intent = new Intent(MainActivity.this, AlbumActivity.class);
         intent.putExtra(Commons.ALBUM_NAME_KEY, tv);
+        intent.putExtra("FLAG_KEY", flag);
         startActivity(intent);
     }
 }

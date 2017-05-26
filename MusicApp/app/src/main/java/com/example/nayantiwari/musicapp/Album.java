@@ -8,11 +8,13 @@ public class Album {
     private String mAlbumName;
     private String mSongName;
     private String mSongDuration;
+    private int mSongNumber;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
 
 
     public Album(String albumName, String songName, int imageResourceId) {
+        mSongNumber = 0;
         mAlbumName =  albumName;
         mSongName = songName;
         mImageResourceId = imageResourceId;
@@ -40,6 +42,8 @@ public class Album {
     public String getSongDuration() {
         return mSongDuration;
     }
+
+    public int getSongNumber() { return mSongNumber; }
 
     public int getImageResourceId() {
         return mImageResourceId;

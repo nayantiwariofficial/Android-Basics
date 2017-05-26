@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -20,9 +22,10 @@ import java.util.ArrayList;
 
 public class AlbumAdapter extends ArrayAdapter<Album> {
 
+    int mSongNumbers;
     public AlbumAdapter(Activity context, ArrayList<Album> albums) {
         super(context, 0, albums);
-
+        mSongNumbers = albums.size();
     }
 
     @NonNull
@@ -35,14 +38,22 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         }
         Album currentAlbum = getItem(position);
 
-//        TextView albumTextView = (TextView) albumView.findViewById(R.id.album_name);
-//        albumTextView.setText(currentAlbum.getAlbumName());
+        TextView albumTextView = (TextView) albumView.findViewById(R.id.album_name);
+        albumTextView.setText(currentAlbum.getAlbumName());
 
         TextView songTextView = (TextView) albumView.findViewById(R.id.song_name);
         songTextView.setText(currentAlbum.getSongName());
 
         TextView durationTextView = (TextView) albumView.findViewById(R.id.duration);
         durationTextView.setText(currentAlbum.getSongDuration());
+
+//        TextView songNumberTextView = (TextView) albumTextView.findViewById(R.id.song_numbers);
+
+//        if(currentAlbum.getSongNumber() == 0)
+//            songNumberTextView.setVisibility(View.GONE);
+//        else
+//            songNumberTextView.setText("Number of Songs: " + mSongNumbers);
+//            songNumberTextView.setVisibility(View.VISIBLE);
 
         ImageView reqImageView = (ImageView) albumView.findViewById(R.id.album_art);
 

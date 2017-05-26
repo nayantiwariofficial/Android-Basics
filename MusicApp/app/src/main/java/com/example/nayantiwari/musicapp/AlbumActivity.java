@@ -19,10 +19,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class AlbumActivity extends AppCompatActivity {
     AlbumAdapter albumInfoAdapter, albumAdapter;
-
-    private static final String TAG = "AlbumActivity";
+    ArrayList<Album> songArrayList, albumInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,26 +37,33 @@ public class AlbumActivity extends AppCompatActivity {
             if (extras != null) {
                 albumName = extras.getString(Commons.ALBUM_NAME_KEY);
                 setTitle(albumName);
-                Log.i(TAG, "onCreate: AlbumKey: " + albumName);
             }
         }
-
-        ArrayList<Album> songArrayList = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            songArrayList.add( new Album(albumName, "Song "+i, "3:48"));
+        boolean flag = getIntent().getExtras().getBoolean("FLAG_KEY");
+        if(flag) {
+            songArrayList = new ArrayList<>();
+            for (int i = 1; i <= 10; i++) {
+                    songArrayList.add(new Album(albumName, "Song " + i, "3:48"));
+            }
         }
-
-        ArrayList<Album> albumInfoList = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            albumInfoList.add( new Album(albumName, "Song "+i, R.drawable.logo1));
+        else {
+            albumInfoList = new ArrayList<>();
+            for (int i = 1; i <= 10; i++) {
+                albumInfoList.add(new Album(albumName, "Song " + i, R.drawable.logo1));
+            }
         }
 //
-        albumInfoAdapter = new AlbumAdapter(this, albumInfoList);
         ListView rootView = (ListView) findViewById(R.id.song_list);
-        rootView.setAdapter(albumInfoAdapter);
 
-        albumAdapter = new AlbumAdapter(this, songArrayList);
-        rootView.setAdapter(albumAdapter);
+        if(!flag)
+        {
+            albumInfoAdapter = new AlbumAdapter(this, albumInfoList);
+            rootView.setAdapter(albumInfoAdapter);
+        }
+        else {
+            albumAdapter = new AlbumAdapter(this, songArrayList);
+            rootView.setAdapter(albumAdapter);
+        }
 
     }
 }
