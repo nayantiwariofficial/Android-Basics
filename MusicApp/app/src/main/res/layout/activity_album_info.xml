@@ -6,19 +6,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#455A64"
-    android:id="@+id/linearLayoutAlbumInfo"
-    tools:context="com.example.nayantiwari.musicapp.AlbumInfoActivity">
+    android:id="@+id/linear_layout_album_info"
+    tools:context="com.example.nayantiwari.musicapp.AlbumActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:id="@+id/album_art"
         android:scaleType="centerInside"/>
 
     <TextView
         style="@style/albumName"
-        android:text="Album 1"
+        tools:text="Album 1"
+        android:gravity="center"
+        android:id="@+id/album_name"
         android:layout_marginTop="10dp"
         android:textSize="20sp"/>
+
+    <TextView
+        style="@style/albumName"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Number Of Songs"
+        android:id="@+id/song_numbers"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/album_song_list">
+
+        <TextView
+            style="@style/albumInfo"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="List of songs"
+            android:gravity="left"
+            android:id="@+id/song_name"/>
+        <TextView
+            style="@style/albumInfo"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="duration"
+            android:gravity="right"
+            android:textSize="12sp"
+            android:id="@+id/duration"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class AlbumActivity extends AppCompatActivity {
+    AlbumAdapter albumInfoAdapter, albumAdapter;
 
     private static final String TAG = "AlbumActivity";
 
@@ -38,25 +39,22 @@ public class AlbumActivity extends AppCompatActivity {
             }
         }
 
-        ArrayList<String> songArrayList = new ArrayList<>();
+        ArrayList<Album> songArrayList = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
-            songArrayList.add("Song "+i);
+            songArrayList.add( new Album(albumName, "Song "+i, "3:48"));
         }
 
-        Log.i(TAG, "Array list size "+ songArrayList.size());
+        ArrayList<Album> albumInfoList = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            albumInfoList.add( new Album(albumName, "Song "+i, R.drawable.logo1));
+        }
+//
+        albumInfoAdapter = new AlbumAdapter(this, albumInfoList);
+        ListView rootView = (ListView) findViewById(R.id.song_list);
+        rootView.setAdapter(albumInfoAdapter);
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, songArrayList);
-        ListView rootView = (ListView) findViewById(R.id.songList);
-        rootView.setAdapter(itemsAdapter);
-//        for (int i = 0; i < songArrayList.size(); i++) {
-//            TextView songNameTextView = new TextView(this);
-//            View view = new View(this);
-//            songNameTextView.setText(songArrayList.get(i));
-//            songNameTextView.setTextAppearance(R.style.songName);
-//            linearLayoutSongList.addView(songNameTextView);
-//            linearLayoutSongList.addView(view);
-//        }
-
+        albumAdapter = new AlbumAdapter(this, songArrayList);
+        rootView.setAdapter(albumAdapter);
 
     }
 }

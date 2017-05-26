@@ -20,40 +20,21 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ImageView albumClick = (ImageView) findViewById(R.id.album1_2);
-        albumClick.setOnLongClickListener(new View.OnLongClickListener() {
+        ImageView imageView = (ImageView) findViewById(R.id.album1_1);
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                String tv = null;
-                Bitmap bitmap = null;
-                LinearLayout ll = (LinearLayout) v.getParent();
-                for (int i = 0; i < ll.getChildCount(); i++) {
-                    View view1 = ll.getChildAt(i);
-
-                    if (view1 instanceof ImageView) {
-                        ImageView imageView = (ImageView) view1;
-                        BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                        bitmap = bitmapDrawable.getBitmap();
-                        Log.i(TAG, "onAlbumLongClick: " + bitmap);
-                    }
-                    if (view1 instanceof TextView) {
-                        TextView textView = (TextView) view1;
-                        tv = textView.getText().toString();
-                        Log.i(TAG, "onAlbumClick: " + tv);
-                    }
-                }
-                Intent intent = new Intent(MainActivity.this, AlbumInfoActivity.class);
-                intent.putExtra("ALBUM_NAME_KEY", tv);
-                intent.putExtra("ALBUM_ART_KEY", bitmap);
-                startActivity(intent);
+                loadActivity(v);
                 return false;
             }
         });
-
     }
 
     public void onAlbumClick(View view) {
+        loadActivity(view);
+    }
 
+    public void loadActivity(View view) {
         String tv = null;
         LinearLayout ll = (LinearLayout) view.getParent();
         for (int i = 0; i < ll.getChildCount(); i++) {
@@ -68,5 +49,4 @@ public class MainActivity extends AppCompatActivity{
         intent.putExtra(Commons.ALBUM_NAME_KEY, tv);
         startActivity(intent);
     }
-
 }
