@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -25,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(MainActivity.this, "Song done", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
