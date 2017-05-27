@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/tan_background"
-    android:minHeight="@dimen/list_item_height"
-    android:id="@+id/parentLayout"
-    android:orientation="horizontal">
+    android:minHeight="@dimen/list_item_height">
 
     <ImageView
         android:id="@+id/required_image"
@@ -16,14 +14,17 @@
     <LinearLayout
         android:id="@+id/linear_layout_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/required_image"
         android:orientation="vertical"
         android:padding="16dp">
 
         <TextView
             android:id="@+id/miwok_text_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="bottom"
@@ -34,7 +35,7 @@
 
         <TextView
             android:id="@+id/default_text_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="top"
@@ -44,11 +45,20 @@
 
     </LinearLayout>
 
-    <!--<Button-->
-        <!--android:id="@+id/play_button"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="2"-->
-        <!--android:gravity="center_vertical" />-->
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="play button"
+        android:src="@drawable/ic_play_arrow_white_24dp" />
 
-</LinearLayout>
+    <!--<Button-->
+    <!--android:id="@+id/play_button"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="2"-->
+    <!--android:gravity="center_vertical" />-->
+
+</RelativeLayout>

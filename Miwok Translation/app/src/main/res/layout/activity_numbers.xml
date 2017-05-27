@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:id="@+id/rootView"
     android:choiceMode="singleChoice"
+    android:drawSelectorOnTop="true"
     tools:context="com.example.android.miwok.GeneralActivity">
 
 </ListView>

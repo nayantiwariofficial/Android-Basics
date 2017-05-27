@@ -1,6 +1,8 @@
 package com.example.android.miwok;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -56,11 +58,22 @@ public class GeneralActivity extends AppCompatActivity {
     String key = "";
     WordAdapter itemsAdapterC, itemsAdapterP, itemsAdapterN, itemsAdapterF;
     private MediaPlayer mMediaPlayer;
+    private AudioManager mAudioManager;
     Word word;
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
             releaseMediaPlayer();
+        }
+    };
+
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            }
         }
     };
 
@@ -92,6 +105,7 @@ public class GeneralActivity extends AppCompatActivity {
                 }
             }
         }
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         if (key.equals("Numbers")) {
             numberArrayList.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
@@ -159,7 +173,7 @@ public class GeneralActivity extends AppCompatActivity {
 
         rootView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Log.i(TAG, "onItemClick: key: " + key);
 //                Type type = Type.valueOf(key);
                 /*switch (type) {
@@ -178,32 +192,45 @@ public class GeneralActivity extends AppCompatActivity {
                 }*/
                 switch (key) {
                     case "Numbers":
-                        word = numberArrayList.get(i);
+                        word = numberArrayList.get(position);
                         break;
                     case "Colors":
-                        word = colorArrayList.get(i);
+                        word = colorArrayList.get(position);
                         break;
                     case "Phrases":
-                        word = phrasesArrayList.get(i);
+                        word = phrasesArrayList.get(position);
                         break;
                     case "Family Members":
-                        word = familyArrayList.get(i);
+                        word = familyArrayList.get(position);
                         break;
                 }
 //                Word word = (Word) adapterView.getSelectedItem();
 
-                releaseMediaPlayer();
-                mMediaPlayer = MediaPlayer.create(GeneralActivity.this, word.getMediaResourceId());
-                mMediaPlayer.start();
-                mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                        AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mMediaPlayer = MediaPlayer.create(GeneralActivity.this, word.getMediaResourceId());
+                    mMediaPlayer.start();
+
+                }
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        releaseMediaPlayer();
     }
 
     private void releaseMediaPlayer() {
         if (mMediaPlayer != null) {
             mMediaPlayer.release();
             mMediaPlayer = null;
+
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 
