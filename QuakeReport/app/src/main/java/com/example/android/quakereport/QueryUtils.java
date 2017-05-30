@@ -42,7 +42,8 @@ public class QueryUtils {
         ArrayList<Quake> earthquakes = new ArrayList<>();
         double mag;
         String location;
-        Long time;
+        long time;
+        String url;
 
         // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -60,7 +61,9 @@ public class QueryUtils {
                 mag = properties.getDouble("mag");
                 location = properties.getString("place");
                 time = properties.getLong("time");
-                earthquakes.add(new Quake(mag, location, time));
+                url = properties.getString("url");
+
+                earthquakes.add(new Quake(mag, location, time, url));
             }
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,
