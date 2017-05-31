@@ -2,12 +2,9 @@ package com.example.android.quakereport;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.StringBuilderPrinter;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,9 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,6 +32,7 @@ public class QueryUtils {
     }
 
     public static List<Quake> fetchEarthquakeData(String requestUrl) {
+
         URL url = createUrl(requestUrl);
 
         String jsonResponse = null;
@@ -130,20 +126,20 @@ public class QueryUtils {
                 // Get a single earthquake at position i within the list of earthquakes
                 JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
 
-                JSONObject properties = currentEarthquake.getJSONObject("properties");   // Extract the value for the key called "mag"
+            JSONObject properties = currentEarthquake.getJSONObject("properties");   // Extract the value for the key called "mag"
 
-                double magnitude = properties.getDouble("mag");
+            double magnitude = properties.getDouble("mag");
 
-                String location = properties.getString("place");
+            String location = properties.getString("place");
 
-                long time = properties.getLong("time");
+            long time = properties.getLong("time");
 
-                String url = properties.getString("url");
+            String url = properties.getString("url");
 
-                Quake earthquake = new Quake(magnitude, location, time, url);
+            Quake earthquake = new Quake(magnitude, location, time, url);
 
-                earthquakes.add(earthquake);
-            }
+            earthquakes.add(earthquake);
+        }
 
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);

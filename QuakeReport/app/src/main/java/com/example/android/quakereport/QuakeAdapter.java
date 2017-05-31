@@ -56,7 +56,7 @@ public class QuakeAdapter extends ArrayAdapter<Quake> {
 
 
         if (originalLocation.contains("of")) {
-            String[] parts = originalLocation.split("of");
+            String[] parts = originalLocation.split("of ");
             locationOffset = parts[0] + "of";
             primaryLocation = parts[1];
         } else {
@@ -65,7 +65,7 @@ public class QuakeAdapter extends ArrayAdapter<Quake> {
         }
 
         TextView locationOffsetTextView = (TextView) quakeListView.findViewById(R.id.offset);
-        locationOffsetTextView.setText(" "+locationOffset);
+        locationOffsetTextView.setText(locationOffset);
 
         TextView quakeLocation = (TextView) quakeListView.findViewById(R.id.location);
         quakeLocation.setText(primaryLocation);
