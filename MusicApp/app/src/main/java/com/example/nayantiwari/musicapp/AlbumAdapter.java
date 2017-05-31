@@ -22,10 +22,13 @@ import java.util.ArrayList;
 
 public class AlbumAdapter extends ArrayAdapter<Album> {
 
-    int mSongNumbers;
-    public AlbumAdapter(Activity context, ArrayList<Album> albums) {
+    private int mSongNumbers;
+    private boolean flag;
+
+    public AlbumAdapter(Activity context, ArrayList<Album> albums, boolean flag) {
         super(context, 0, albums);
         mSongNumbers = albums.size();
+        this.flag = flag;
     }
 
     @NonNull
@@ -39,7 +42,7 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         Album currentAlbum = getItem(position);
 
         TextView albumTextView = (TextView) albumView.findViewById(R.id.album_name);
-        albumTextView.setText(currentAlbum.getAlbumName());
+//        albumTextView.setText(currentAlbum.getAlbumName());
 
         TextView songTextView = (TextView) albumView.findViewById(R.id.song_name);
         songTextView.setText(currentAlbum.getSongName());
@@ -47,7 +50,9 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         TextView durationTextView = (TextView) albumView.findViewById(R.id.duration);
         durationTextView.setText(currentAlbum.getSongDuration());
 
-//        TextView songNumberTextView = (TextView) albumTextView.findViewById(R.id.song_numbers);
+        TextView songNumberTextView = (TextView) albumView.findViewById(R.id.song_numbers);
+
+        TextView artistNameTextView = (TextView) albumView.findViewById(R.id.artist_name);
 
 //        if(currentAlbum.getSongNumber() == 0)
 //            songNumberTextView.setVisibility(View.GONE);
@@ -58,8 +63,27 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         ImageView reqImageView = (ImageView) albumView.findViewById(R.id.album_art);
 
         if (currentAlbum.hasImage()) {
-            reqImageView.setImageResource(currentAlbum.getImageResourceId());
-            reqImageView.setVisibility(View.VISIBLE);
+            boolean showImage = false;
+            if (flag) {
+                showImage = true;
+            } else if (position == 0) {
+                showImage = true;
+            }
+            if (showImage) {
+                reqImageView.setImageResource(currentAlbum.getImageResourceId());
+                albumTextView.setText(currentAlbum.getAlbumName());
+                songNumberTextView.setText(currentAlbum.getSongNumber());
+                songNumberTextView.setVisibility(View.VISIBLE);
+                artistNameTextView.setText(R.string.artistName);
+                artistNameTextView.setVisibility(View.VISIBLE);
+                reqImageView.setVisibility(View.VISIBLE);
+                albumTextView.setVisibility(View.VISIBLE);
+            } else {
+                reqImageView.setVisibility(View.GONE);
+                songNumberTextView.setVisibility(View.GONE);
+                albumTextView.setVisibility(View.GONE);
+                artistNameTextView.setVisibility(View.GONE);
+            }
         } else {
             reqImageView.setVisibility(View.GONE);
         }

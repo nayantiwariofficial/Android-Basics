@@ -17,7 +17,6 @@ import static java.lang.Boolean.TRUE;
 public class MainActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
-    boolean flag = FALSE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,16 +26,14 @@ public class MainActivity extends AppCompatActivity{
         imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                flag = FALSE;
-                loadActivity(v, flag);
+                loadOnLongClickActivity(v, false);
                 return false;
             }
         });
     }
 
     public void onAlbumClick(View view) {
-        flag = TRUE;
-        loadActivity(view, flag);
+        loadActivity(view, true);
     }
 
     public void loadActivity(View view, boolean flag) {
@@ -52,6 +49,23 @@ public class MainActivity extends AppCompatActivity{
         }
         Intent intent = new Intent(MainActivity.this, AlbumActivity.class);
         intent.putExtra(Commons.ALBUM_NAME_KEY, tv);
+        intent.putExtra("FLAG_KEY", flag);
+        startActivity(intent);
+    }
+
+    public void loadOnLongClickActivity(View view, boolean flag) {
+        String tv = null;
+        LinearLayout ll = (LinearLayout) view.getParent();
+        for (int i = 0; i < ll.getChildCount(); i++) {
+            View view1 = ll.getChildAt(i);
+            if (view1 instanceof TextView) {
+                TextView textView = (TextView) view1;
+                tv = textView.getText().toString();
+                Log.i(TAG, "onAlbumClick: " + tv);
+            }
+        }
+        Intent intent = new Intent(MainActivity.this, AlbumActivity.class);
+        intent.putExtra(Commons.ALBUM_NAME_KEY, tv + " Info");
         intent.putExtra("FLAG_KEY", flag);
         startActivity(intent);
     }

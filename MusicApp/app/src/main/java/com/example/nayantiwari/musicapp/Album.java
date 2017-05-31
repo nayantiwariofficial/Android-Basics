@@ -8,15 +8,16 @@ public class Album {
     private String mAlbumName;
     private String mSongName;
     private String mSongDuration;
-    private int mSongNumber;
+    private String mSongNumber = "0";
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
 
 
-    public Album(String albumName, String songName, int imageResourceId) {
-        mSongNumber = 0;
+    public Album(String albumName, String songName, int imageResourceId, String songDuration, String songNumber) {
+        mSongNumber = songNumber;
         mAlbumName =  albumName;
         mSongName = songName;
+        mSongDuration = songDuration;
         mImageResourceId = imageResourceId;
     }
     public Album(String albumName, String songName, String songDuration)
@@ -43,7 +44,7 @@ public class Album {
         return mSongDuration;
     }
 
-    public int getSongNumber() { return mSongNumber; }
+    public String getSongNumber() { return "Number of songs: " + mSongNumber; }
 
     public int getImageResourceId() {
         return mImageResourceId;

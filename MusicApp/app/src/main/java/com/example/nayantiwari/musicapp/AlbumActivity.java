@@ -23,6 +23,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class AlbumActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     AlbumAdapter albumInfoAdapter, albumAdapter;
     ArrayList<Album> songArrayList, albumInfoList;
 
@@ -39,6 +40,10 @@ public class AlbumActivity extends AppCompatActivity {
                 setTitle(albumName);
             }
         }
+        String albumNameTemp = null;
+        if (albumName != null) {
+             albumNameTemp = albumName.substring(0, 7);
+        }
         boolean flag = getIntent().getExtras().getBoolean("FLAG_KEY");
         if(flag) {
             songArrayList = new ArrayList<>();
@@ -49,7 +54,7 @@ public class AlbumActivity extends AppCompatActivity {
         else {
             albumInfoList = new ArrayList<>();
             for (int i = 1; i <= 10; i++) {
-                albumInfoList.add(new Album(albumName, "Song " + i, R.drawable.logo1));
+                albumInfoList.add(new Album(albumNameTemp, "Song " + i, R.drawable.logo1, "3:48", "10"));
             }
         }
 //
@@ -57,11 +62,11 @@ public class AlbumActivity extends AppCompatActivity {
 
         if(!flag)
         {
-            albumInfoAdapter = new AlbumAdapter(this, albumInfoList);
+            albumInfoAdapter = new AlbumAdapter(this, albumInfoList, flag);
             rootView.setAdapter(albumInfoAdapter);
         }
         else {
-            albumAdapter = new AlbumAdapter(this, songArrayList);
+            albumAdapter = new AlbumAdapter(this, songArrayList, flag);
             rootView.setAdapter(albumAdapter);
         }
 

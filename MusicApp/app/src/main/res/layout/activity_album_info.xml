@@ -2,59 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear_layout_album_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#455A64"
-    android:id="@+id/linear_layout_album_info"
+    android:orientation="vertical"
     tools:context="com.example.nayantiwari.musicapp.AlbumActivity">
 
     <ImageView
+        android:id="@+id/album_art"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/album_art"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside" />
 
     <TextView
         android:id="@+id/album_name"
         style="@style/albumName"
         android:layout_marginTop="10dp"
-        android:gravity="left"
+        android:gravity="center"
         android:textSize="20sp"
         tools:text="Album 1" />
 
     <TextView
+        android:id="@+id/artist_name"
         style="@style/albumName"
-        android:gravity="center"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Number Of Songs"
-        android:id="@+id/song_numbers"/>
+        android:gravity="center"
+        tools:text="Name of the Artist" />
+
+
+    <TextView
+        android:id="@+id/song_numbers"
+        style="@style/albumName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="Number Of Songs" />
 
     <LinearLayout
+        android:id="@+id/album_song_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/album_song_list">
+        android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/song_name"
             style="@style/albumInfo"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            tools:text="List of songs"
+            android:layout_weight="1"
             android:gravity="left"
-            android:id="@+id/song_name"/>
+            android:textSize="20sp"
+            tools:text="List of songs" />
+
         <TextView
+            android:id="@+id/duration"
             style="@style/albumInfo"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            tools:text="duration"
+            android:layout_weight="1"
             android:gravity="right"
             android:textSize="12sp"
-            android:id="@+id/duration"/>
+            tools:text="duration" />
     </LinearLayout>
 
 </LinearLayout>
