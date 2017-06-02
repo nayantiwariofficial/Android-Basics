@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.nayantiwari.reportcard.ReportCard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="16dp"
+                android:alpha="0.2"
+                android:src="@drawable/asu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="16dp"
+                android:text="@string/report_card" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/name_of_the_student" />
+
+            <EditText
+                android:id="@+id/student_name"
+                style="@style/Text"
+                android:hint="@string/student_name"
+                android:inputType="textCapWords" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/physics" />
+
+            <EditText
+                android:id="@+id/physics_marks"
+                style="@style/Text"
+                android:hint="@string/percentage"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/chemistry" />
+
+            <EditText
+                android:id="@+id/chemistry_marks"
+                style="@style/Text"
+                android:hint="@string/percentage"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/biology" />
+
+            <EditText
+                android:id="@+id/biology_marks"
+                style="@style/Text"
+                android:hint="@string/percentage"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/mathematics" />
+
+            <EditText
+                android:id="@+id/mathematics_marks"
+                style="@style/Text"
+                android:hint="@string/percentage"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/english" />
+
+            <EditText
+                android:id="@+id/english_marks"
+                style="@style/Text"
+                android:hint="@string/percentage"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="122dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_margin="16dp"
+                android:onClick="setMarks"
+                android:padding="16dp"
+                android:text="@string/submit" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

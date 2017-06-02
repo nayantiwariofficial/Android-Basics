@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.nayantiwari.reportcard.ReportCard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="16dp"
+                android:alpha="0.2"
+                android:src="@drawable/asu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="16dp"
+                android:text="@string/report_card" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/name_of_the_student" />
+
+            <TextView
+                android:id="@+id/student_name_result"
+                style="@style/Text"
+                android:padding="16dp"
+                tools:text="@string/student_name" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/physics" />
+
+            <TextView
+                android:id="@+id/physics_result"
+                style="@style/Text"
+                android:padding="16dp"
+                tools:text="@string/percentage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/chemistry" />
+
+            <TextView
+                android:id="@+id/chemistry_result"
+                style="@style/Text"
+                android:padding="16dp"
+                tools:text="@string/percentage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/biology" />
+
+            <TextView
+                android:id="@+id/biology_result"
+                style="@style/Text"
+                android:padding="16dp"
+                tools:text="@string/percentage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/mathematics" />
+
+            <TextView
+                android:id="@+id/mathematics_result"
+                style="@style/Text"
+                android:padding="16dp"
+                tools:text="@string/percentage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Text"
+                android:text="@string/english" />
+
+            <TextView
+                android:id="@+id/english_result"
+                style="@style/Text"
+                android:padding="16dp"
+                tools:text="@string/percentage" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    style="@style/Text"
+                    android:gravity="end"
+                    android:text="@string/result" />
+
+                <TextView
+                    android:id="@+id/result"
+                    style="@style/Text"
+                    android:gravity="start"
+                    android:textAllCaps="true"
+                    tools:text="pass/fail" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
