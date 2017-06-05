@@ -17,58 +17,26 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.example.android.miwok.R.id.numbers;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        final TextView numbers = (TextView) findViewById(R.id.numbers);
-        numbers.setOnClickListener(this);
-        final TextView phrase = (TextView) findViewById(R.id.phrases);
-        phrase.setOnClickListener(this);
-
-        final TextView family = (TextView) findViewById(R.id.family);
-        family.setOnClickListener(this);
-
-        final TextView color = (TextView) findViewById(R.id.colors);
-        color.setOnClickListener(this);
-
-//        final TextView numberTextView = (TextView) findViewById(numbers);
-//        numberTextView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                loadActivity(numberTextView);
-//            }
-//        });
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager());
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
     }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.numbers:
-            case R.id.phrases:
-            case R.id.family:
-            case R.id.colors:
-                loadActivity((TextView) view);
-                break;
-        }
-    }
-
-    private void loadActivity(TextView textView){
-        Intent intent = new Intent(MainActivity.this, GeneralActivity.class);
-        intent.putExtra("NUMBER_KEY", textView.getText().toString());
-    //    intent.putExtra("COLOR_DRAWABLE_KEY", new ColorWrapper(textView.getBackground()));
-        startActivity(intent);
-    }
-
 }

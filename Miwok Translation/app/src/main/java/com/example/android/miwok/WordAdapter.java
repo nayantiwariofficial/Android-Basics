@@ -27,7 +27,6 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word>{
 
     private int mBackgroundColor;
-    private MediaPlayer mediaPlayer;
 
     public WordAdapter(Activity context, ArrayList<Word> words, int color) {
         super(context, 0, words);
@@ -39,8 +38,7 @@ public class WordAdapter extends ArrayAdapter<Word>{
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_item, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
         Word currentWord = getItem(position);
