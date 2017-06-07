@@ -44,7 +44,11 @@ public class PetProvider extends ContentProvider {
         // should recognize. All paths added to the UriMatcher have a corresponding code to return
         // when a match is found.
 
-        // TODO: Add 2 content URIs to URI matcher
+        sUriMatcher.addURI(PetContract.CONTENT_AUTHORITY, PetContract.PATH_PETS, PETS);
+
+        sUriMatcher.addURI(PetContract.CONTENT_AUTHORITY, PetContract.PATH_PETS + "/#", PET_ID);
+
+
     }
 
     /**
@@ -57,11 +61,7 @@ public class PetProvider extends ContentProvider {
      */
     @Override
     public boolean onCreate() {
-        // TODO: Create and initialize a PetDbHelper object to gain access to the pets database.
         mDbHelper = new PetDbHelper(getContext());
-//        SQLiteDatabase sqLiteDatabase = mDbHelper.getWritableDatabase();
-//        sqLiteDatabase.query(PetEntry.TABLE_NAME, )
-        // ContentProvider methods.
         return true;
     }
 
@@ -129,18 +129,18 @@ public class PetProvider extends ContentProvider {
      * for that specific row in the database.
      */
     private Uri insertPet(Uri uri, ContentValues values) {
-
+        // Get writeable database
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
-        long id = database.insert(PetEntry.TABLE_NAME, null, values);
 
+        // Insert the new pet with the given values
+        long id = database.insert(PetEntry.TABLE_NAME, null, values);
         // If the ID is -1, then the insertion failed. Log an error and return null.
         if (id == -1) {
             Log.e(LOG_TAG, "Failed to insert row for " + uri);
             return null;
         }
 
-        // Once we know the ID of the new row in the table,
-        // return the new URI with the ID appended to the end of it
+        // Return the new URI with the ID (of the newly inserted row) appended at the end
         return ContentUris.withAppendedId(uri, id);
     }
 
